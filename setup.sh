@@ -11,18 +11,7 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- icanhazip.com);
-IZIN=$( curl https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/ipvps | grep $MYIP )
-if [ $MYIP = $IZIN ]; then
-echo -e "${green}Permission Accepted...${NC}"
-else
-echo -e "${red}Permission Denied!${NC}";
-echo "Please Contact Admin"
-echo "Telegram https://t.me/Nakata143"
-echo "PM saya @Nakata143"
-echo "Whatsapp 0143915636"
-rm -f setup.sh
-exit 0
-fi
+clear
 if [ -f "/etc/v2ray/domain" ]; then
 echo "Script Already Installed"
 exit 0
@@ -129,11 +118,11 @@ echo "   - White Label" | tee -a log-install.txt
 echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "   - Dev/Main               : MOHD ADAM"  | tee -a log-install.txt
-echo "   - Telegram                : https://t.me/Nakata143"  | tee -a log-install.txt
-echo "   - Instagram               : @Nakata143"  | tee -a log-install.txt
+echo "   - Telegram               : https://t.me/Nakata143"  | tee -a log-install.txt
+echo "   - Instagram              : @Nakata143"  | tee -a log-install.txt
 echo "   - Whatsapp               : 0143915636"  | tee -a log-install.txt
-echo "   - Facebook                : Mohd Adam" | tee -a log-install.txt
-echo "------------------Script Created By Nakata-----------------" | tee -a log-install.txt
+echo "   - Facebook               : Nakata v2" | tee -a log-install.txt
+echo "------------------Script Created By Nakata2----------------" | tee -a log-install.txt
 echo ""
 echo " Reboot 10 Sec"
 sleep 10
