@@ -1,164 +1,289 @@
 #!/bin/bash
-yl='\e[031;1m'
-bl='\e[36;1m'
-gl='\e[32;1m'
-
-clear 
-cat /usr/bin/bannerku | lolcat
+clear
+m="\033[0;1;36m"
+y="\033[0;1;37m"
+yy="\033[0;1;32m"
+yl="\033[0;1;33m"
+wh="\033[0m"
 echo -e ""
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 CITY=$(curl -s ipinfo.io/city )
 WKT=$(curl -s ipinfo.io/timezone )
-IPVPS=$(curl -s ipinfo.io/ip )
-DOMAIN=$(cat /etc/v2ray/domain)
-	cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo )
-	cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
-	freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
-	tram=$( free -m | awk 'NR==2 {print $2}' )
-	swap=$( free -m | awk 'NR==4 {print $2}' )
-	up=$(uptime|awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF=""; print }')
-
-	echo -e "   \e[032;1mCPU Model:\e[0m $cname"
-	echo -e "   \e[032;1mNumber Of Cores:\e[0m $cores"
-	echo -e "   \e[032;1mCPU Frequency:\e[0m $freq MHz"
-	echo -e "   \e[032;1mTotal Amount Of RAM:\e[0m $tram MB"
-	echo -e "   \e[032;1mSystem Uptime:\e[0m $up"
-	echo -e "   \e[032;1mIsp Name:\e[0m $ISP"
-	echo -e "   \e[032;1mCity:\e[0m $CITY"
-	echo -e "   \e[032;1mTime:\e[0m $WKT"
-	echo -e "   \e[032;1mIPVPS:\e[0m $IPVPS"
-	echo -e "   \e[032;1mDOMAIN:\e[0m $DOMAIN"
-echo -e  ""
-echo -e  "   -------------------------MENU OPTIONS------------------------" | lolcat
-echo -e   "   1\e[1;33m)\e[m SSH & OpenVPN Menu"
-echo -e   "   2\e[1;33m)\e[m Panel Wireguard "
-echo -e   "   3\e[1;33m)\e[m Panel L2TP & PPTP Account"
-echo -e   "   4\e[1;33m)\e[m Panel SSTP  Account"
-echo -e   "   5\e[1;33m)\e[m Panel SSR & SS Account"
-echo -e   "   6\e[1;33m)\e[m Panel V2Ray"
-echo -e   "   7\e[1;33m)\e[m Panel VLess"
-echo -e   "   8\e[1;33m)\e[m Panel TRojan"
-echo -e   "  \e[1;32m------------------------------------------------------------\e[m" | lolcat
-echo -e   "                             SYSTEM MENU\e[m" | lolcat 
-echo -e   "  \e[1;32m------------------------------------------------------------\e[m" | lolcat
-echo -e   "   9\e[1;33m)\e[m   Add Subdomain Host For VPS"
-echo -e   "   10\e[1;33m)\e[m  Renew Certificate V2RAY"
-echo -e   "   11\e[1;33m)\e[m  Change Port All Account"
-echo -e   "   12\e[1;33m)\e[m  Autobackup Data VPS"
-echo -e   "   13\e[1;33m)\e[m  Backup Data VPS"
-echo -e   "   14\e[1;33m)\e[m  Restore Data VPS"
-echo -e   "   15\e[1;33m)\e[m  Webmin Menu"
-echo -e   "   16\e[1;33m)\e[m  Limit Bandwith Speed Server"
-echo -e   "   17\e[1;33m)\e[m  Check Usage of VPS Ram" 
-echo -e   "   18\e[1;33m)\e[m  Reboot VPS"
-echo -e   "   19\e[1;33m)\e[m  Speedtest VPS"
-echo -e   "   20\e[1;33m)\e[m  Information Display System" 
-echo -e   "   21\e[1;33m)\e[m  Info Script Auto Install"
-echo -e   "   22\e[1;33m)\e[m  Install BBR"
-echo -e   "   23\e[1;33m)\e[m  Add ID Cloudflare"
-echo -e   "   24\e[1;33m)\e[m  Cloudflare Add-Ons"
-echo -e   "   25\e[1;33m)\e[m  Pointing BUG"
-echo -e   "   26\e[1;33m)\e[m  Syestem running"
-echo -e   "   27\e[1;33m)\e[m  Clear log"
-echo -e   "   28\e[1;33m)\e[m  Auto Reboot"
-echo -e   "  \e[1;32m------------------------------------------------------------\e[m" | lolcat
-echo -e   "   x)   Exit" | lolcat
-echo -e   "  \e[1;32m------------------------------------------------------------\e[m" | lolcat
-echo -e   ""
-read -p "     Select From Options [1-8 or x] :  " menu
-echo -e   ""
+IPVPS=$(curl -s ifconfig.me/ip )
+echo -e ""
+echo -e "$m-----------------------------------------------------------------$y"
+echo -e "$m1 IP Vps       : $IPVPS"
+echo -e "$m1 Isp Vps Name : $ISP"
+echo -e "$m1 City         : $CITY"
+echo -e "$m1 Waktu        : $WKT"
+echo -e ""
+echo -e "$m------------------------=$y SSH & OPENVPN $m=--------------------------$wh"
+echo -e "$yy 1$y.Create SSH & OpenVPN Account (add-ssh)"
+echo -e "$yy 2$y.Generate SSH & OpenVPN Trial Account (trial-ssh)"
+echo -e "$yy 3$y.Extending SSH & OpenVPN Account Active Life (renew-ssh)"
+echo -e "$yy 4$y.Delete SSH & OpenVpn Account (delete-ssh)"
+echo -e "$yy 5$y.Check User Login SSH & OpenVPN (cek-ssh)"
+echo -e "$yy 6$y.Daftar Member SSH & OpenVPN (member)"
+echo -e "$yy 7$y.Delete User Expired SSH & OpenVPN (del-exp)"
+echo -e "$yy 8$y.Set up Autokill SSH (autokill)"
+echo -e "$yy 9$y.Displays Users Who Do Multi Login SSH (ceklim)"
+echo -e "$yy 10$y.Restart Service Dropbear, Squid3, OpenVPN dan SSH (restart)"
+echo -e ""
+echo -e "$m--------------------------=$y WIREGUARD $m=----------------------------$wh"
+echo -e "$yy 11$y.Create Account Wireguard (add-wg)"
+echo -e "$yy 12$y.Delete Account Wireguard (del-wg)"
+echo -e "$yy 13$y.Check User Login Wireguard (cek-wg)"
+echo -e "$yy 14$y.Extending Account Wireguard Active Life (renew-wg)"
+echo -e "$yy 15$y.Check Wireguard User Interface(wg-show)"
+echo -e ""
+echo -e "$m-----------------------------=$y L2TP $m=------------------------------$wh"
+echo -e "$yy 16$y.Create Account L2TP (add-l2tp)"
+echo -e "$yy 17$y.Delete Account L2TP (del-l2tp)"
+echo -e "$yy 18$y.Extending Account L2TP Active Life (renew-l2tp)"
+echo -e ""
+echo -e "$m-----------------------------=$y PPTP $m=------------------------------$wh"
+echo -e "$yy 19$y.Create Account PPTP (add-pptp)"
+echo -e "$yy 20$y.Delete Account PPTP (del-pptp)"
+echo -e "$yy 21$y.Extending Account PPTP Active Life (renew-pptp)"
+echo -e "$yy 22$y.Check User Login Wireguard (cek-pptp)"
+echo -e ""
+echo -e "$m-----------------------------=$y SSTP $m=------------------------------$wh"
+echo -e "$yy 23$y.Create Account SSTP (add-sstp)"
+echo -e "$yy 24$y.Delete Account SSTP (del-sstp)"
+echo -e "$yy 25$y.Extending Account SSTP Active Life (renew-sstp)"
+echo -e "$yy 26$y.Check User Login SSTP (cek-sstp)"
+echo -e ""
+echo -e "$m--------------------------=$y SHADOWSOCKSR $m=-------------------------$wh"
+echo -e "$yy 27$y.Create Account SSR (add-ssr)"
+echo -e "$yy 28$y.Delete Account SSR (del-ssr)"
+echo -e "$yy 29$y.Extending Account SSR Active Life (renew-ssr)"
+echo -e "$yy 30$y.Show Other SSR Menu (ssr)"
+echo -e ""
+echo -e "$m--------------------------=$y SHADOWSOCKS $m=--------------------------$wh"
+echo -e "$yy 31$y.Create Account Shadowsocks (add-ss)"
+echo -e "$yy 32$y.Delete Account Shadowsocks (del-ss)"
+echo -e "$yy 33$y.Extending Account Shadowsocks Active Life (renew-ss)"
+echo -e "$yy 34$y.Check User Login Shadowsocks (cek-ss)"
+echo -e ""
+echo -e "$m--------------------------=$y V2RAY / VMESS $m=------------------------$wh"
+echo -e "$yy 35$y.Create Account V2RAY Vmess Websocket (add-vmess)"
+echo -e "$yy 36$y.Delete Account V2RAY Vmess Websocket (del-vmess)"
+echo -e "$yy 37$y.Extending Account Vmess Active Life (renew-vmess)"
+echo -e "$yy 38$y.Check User Login V2RAY (cek-vmess)"
+echo -e "$yy 39$y.Renew Certificate V2RAY Account (cert2vray)"
+echo -e ""
+echo -e "$m--------------------------=$y V2RAY / VLESS $m=------------------------$wh"
+echo -e "$yy 40$y.Create Account V2RAY Vless Websocket (add-vless)"
+echo -e "$yy 41$y.Delete Account V2RAY Vless Websocket (del-vless)"
+echo -e "$yy 42$y.Extending Account Vless Active Life (renew-vless)"
+echo -e "$yy 43$y.Check User Login V2RAY (cek-vless)"
+echo -e ""
+echo -e "$m----------------------------=$y TROJAN GFW $m=-------------------------$wh"
+echo -e "$yy 44$y.Create Account Trojan (add-tr)"
+echo -e "$yy 45$y.Deleting Account Trojan (del-tr)"
+echo -e "$yy 46$y.Extending Account Trojan Active Life (renew-tr)"
+echo -e "$yy 47$y.Check User Login Trojan (cek-tr)"
+echo -e ""
+echo -e "$m------------------------------=$y SYSTEM $m=--------------------------$wh"
+echo -e "$yy 48$y.Add Or Change Subdomain Host For VPS (add-host)"
+echo -e "$yy 49$y.Change Port Of Some Service (change-port)"
+echo -e "$yy 50$y.Webmin Menu (wbmn)"
+echo -e "$yy 51$y.Limit Bandwith Speed Server (limit-speed)"
+echo -e "$yy 52$y.Check Usage of VPS Ram (ram)"
+echo -e "$yy 53$y.Reboot VPS (reboot)"
+echo -e "$yy 54$y.Speedtest VPS (speedtest)"
+echo -e "$yy 55$y.Displaying System Information (info)"
+echo -e "$yy 56$y.Info Script Auto Install (about)"
+echo -e "$yy 57$y.Cek System (Running)"
+echo -e "$yy 58$y.Exit From VPS (axit) "
+echo -e ""
+echo -e "$m=================================================================$y"
+echo -e ""
+echo -e "$m1 NAKATA 2 SDN BHD $m​​​​​"
+echo -e ""
+read -p "Select From Options [ 1 - 58 ] : " menu
+echo -e ""
 case $menu in
 1)
-ssh
+usernew
 ;;
 2)
-wgr
+trial
 ;;
 3)
-l2tp
+renew
 ;;
 4)
-sstpp
+deluser
 ;;
 5)
-ssssr
+cek
 ;;
 6)
-v2raay
+member
 ;;
 7)
-vleess
+delete
 ;;
 8)
-trojaan
+autokill
 ;;
 9)
-add-host
+ceklim
 ;;
 10)
-certv2ray
+restart
 ;;
 11)
-change-port
+add-wg
 ;;
 12)
-autobackup
+del-wg
 ;;
 13)
-backup
+cek-wg
 ;;
 14)
-restore
+renew-wg
 ;;
 15)
-wbmn
+wg show
 ;;
 16)
-limit-speed
+add-l2tp
 ;;
 17)
-ram
+del-l2tp
 ;;
 18)
-reboot
+renew-l2tp
 ;;
 19)
-speedtest
+add-pptp
 ;;
 20)
-info
+del-pptp
 ;;
 21)
-about
+renew-pptp
 ;;
 22)
-bbr
+cek-pptp
 ;;
 23)
-cff
+add-sstp
 ;;
 24)
-cfd
+del-sstp
 ;;
 25)
-cfh
+renew-sstp
 ;;
 26)
-running
-;;
-26)
-wget -O /usr/bin/running https://raw.githubusercontent.com/scriptadamcrew/Nakata/main/running.sh && chmod +x /usr/bin/running && cd /usr/bin && apt install -y dos2unix && dos2unix running
+cek-sstp
 ;;
 27)
-clear-log
+add-ssr
 ;;
 28)
-autoreboot
+del-ssr
 ;;
-x)
+29)
+renew-ssr
+;;
+30)
+ssr
+;;
+31)
+add-ss
+;;
+32)
+del-ss
+;;
+33)
+renew-ss
+;;
+34)
+cek-ss
+;;
+35)
+add-ws
+;;
+36)
+del-ws
+;;
+37)
+renew-ws
+;;
+38)
+cek-ws
+;;
+39)
+cert2vray
+;;
+40)
+add-vless
+;;
+41)
+del-vless
+;;
+42)
+renew-vless
+;;
+43)
+cek-ws
+;;
+44)
+add-tr
+;;
+45)
+del-tr
+;;
+46)
+renew-tr
+;;
+47)
+cek-tr
+;;
+48)
+add-host
+;;
+49)
+change-port
+;;
+50)
+wbmn
+;;
+51)
+limit-speed
+;;
+52)
+ram
+;;
+53)
+reboot
+;;
+54)
+speedtest
+;;
+55)
+info
+;;
+56)
+about
+;;
+57)
+running
+;;
+57)
+wget -O /usr/bin/running https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/running.sh && chmod +x /usr/bin/running && cd /usr/bin && apt install -y dos2unix && dos2unix running
+;;
+58)
 exit
 ;;
 *)
-echo  "Please enter an correct number"
+clear
+menu
 ;;
 esac
+
