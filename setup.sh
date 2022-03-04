@@ -32,7 +32,7 @@ wget https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/ins-vt.sh && 
 #install L2TP
 wget https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
 wget https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/set-br.sh && chmod +x set-br.sh && ./set-br.sh
-# Install Neofetch 
+#Install Neofetch 
 wget https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/geo.sh && chmod +x geo.sh && ./geo.sh && dos2unix /usr/bin/geo.sh
 #install edu
 wget https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/websocket.sh && chmod +x websocket.sh && ./websocket.sh
