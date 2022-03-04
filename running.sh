@@ -2,7 +2,7 @@
 red="\e[1;31m"                                                                          
 green="\e[0;32m"                                                                        
 NC="\e[0m"                                                                              
-
+clear
 status="$(systemctl show ssh.service --no-page)"                                   
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
@@ -138,4 +138,28 @@ then
 echo -e " Nginx             : Nginx Service is "$green"running"$NC""                
 else                                                                                    
 echo -e " Nginx             : Nginx Service is "$red"not running (Error)"$NC""      
+fi
+status="$(systemctl show ssh-ohp.service --no-page)"
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
+if [ "${status_text}" == "active" ]
+then
+echo -e " OHP-SSH           : OHP-SSH Service is "$green"running"$NC""
+else
+echo -e " OHP-SSH           : OHP-SSH is "$red"not running (Error)"$NC""
+fi
+status="$(systemctl show dropbear-ohp.service --no-page)"
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
+if [ "${status_text}" == "active" ]
+then
+echo -e " OHP-Dropbear      : OHP-Dropbear Service is "$green"running"$NC""
+else
+echo -e " OHP-Dropbear      : OHP-Dropbear is "$red"not running (Error)"$NC""
+fi
+status="$(systemctl show openvpn-ohp.service --no-page)"
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
+if [ "${status_text}" == "active" ]
+then
+echo -e " OHP-OVPN          : OHP-OpenVPN Service is "$green"running"$NC""
+else
+echo -e " OHP-OVPN          : OHP-OpenVPN is "$red"not running (Error)"$NC""
 fi

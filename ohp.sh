@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ohp Script
-# My Telegram : https://t.me/Nakata143
+# My Telegram : https://t.me/joysmark
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -13,8 +13,10 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
+MYIP=$(curl -sS ipinfo.io/ip)
 echo "Checking VPS"
+clear
+
 # Download File Ohp
 wget https://github.com/lfasmpao/open-http-puncher/releases/download/0.1/ohpserver-linux32.zip
 unzip ohpserver-linux32.zip
@@ -27,7 +29,7 @@ cp ohpserver /usr/local/bin/ohpserver
 cat > /etc/systemd/system/ssh-ohp.service << END
 [Unit]
 Description=SSH OHP Redirection Service
-Documentation=https://t.me/Nakata143
+Documentation=https://t.me/joysmark
 After=network.target nss-lookup.target
 
 [Service]
@@ -48,7 +50,7 @@ END
 cat > /etc/systemd/system/dropbear-ohp.service << END
 [Unit]]
 Description=Dropbear OHP Redirection Service
-Documentation=https://t.me/Nakata143
+Documentation=https://t.me/joysmark
 After=network.target nss-lookup.target
 
 [Service]
@@ -69,7 +71,7 @@ END
 cat > /etc/systemd/system/openvpn-ohp.service << END
 [Unit]]
 Description=OpenVPN OHP Redirection Service
-Documentation=https://t.me/Nakata143
+Documentation=https://t.me/joysmark
 After=network.target nss-lookup.target
 
 [Service]
