@@ -122,7 +122,7 @@ echo "   - Telegram               : https://t.me/Nakata143"  | tee -a log-instal
 echo "   - Instagram              : @Nakata143"  | tee -a log-install.txt
 echo "   - Whatsapp               : 0143915636"  | tee -a log-install.txt
 echo "   - Facebook               : Nakata v2" | tee -a log-install.txt
-echo "------------------Script Created By Nakata2----------------" | tee -a log-install.txt
+echo "------------------Script Created By Nakata2 SDN BHD----------------" | tee -a log-install.txt
 echo ""
 echo " Reboot 10 Sec"
 sleep 10
