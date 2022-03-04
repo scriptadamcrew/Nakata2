@@ -100,9 +100,9 @@ echo -e "$red 56$green.Cek System (Running)"
 echo -e "$red 57$green.Info Script Auto Install (about)"
 echo -e "$red 58$green.Exit From VPS (axit) "
 echo -e ""
-echo -e "$blue======$red AUTO SCRIPT BY JOY SMARK BUGIS 2 $m=================$blue"
+echo -e "$blue======$red AUTO SCRIPT BY NAKATA v 2 $m=================$blue"
 echo -e ""
-echo -e "$m1 JOIN GROUP TELEGRAM SAYA https://t.me/joysmark $m​​​​​"
+echo -e "$m1 JOIN GROUP TELEGRAM SAYA https://t.me/Nakata143 $m​​​​​"
 echo -e ""
 echo -e ""
 read -p "Select From Options [ 1 - 58 ] : " menu
@@ -277,7 +277,7 @@ info
 running
 ;;
 56)
-wget -O /usr/bin/running https://raw.githubusercontent.com/joysmart/bugis2/main/running.sh && chmod +x /usr/bin/running && cd /usr/bin && apt install -y dos2unix && dos2unix running
+wget -O /usr/bin/running https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/running.sh && chmod +x /usr/bin/running && cd /usr/bin && apt install -y dos2unix && dos2unix running
 ;;
 57)
 about
