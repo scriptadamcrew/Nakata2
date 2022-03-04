@@ -275,17 +275,7 @@ wget -O cfd "https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/cfd.s
 wget -O cff "https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/cff.sh"
 wget -O cfh "https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/cfh.sh"
 wget -O autoreboot "https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/autoreboot.sh"
-wget -O bannerku "https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/menu-all/bannerku"
-wget -O bbr "https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/menu-all/bbr.sh"
-wget -O menu "https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/menu-all/menu.sh"
-wget -O trojaan "https://raw.githubusercontent.com/scriptadamcrew/Nakata/main/menu-all/trojaan.sh"
-wget -O vleess "https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/menu-all/vleess.sh"
-wget -O wgr "https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/menu-all/wgr.sh"
-wget -O l2tp "https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/menu-all/l2tp.sh"
-wget -O v2raay "https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/menu-all/v2raay.sh"
-wget -O ssh "https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/menu-all/ssh.sh"
-wget -O sstpp "https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/menu-all/sstpp.sh"
-wget -O ssssr "https://raw.githubusercontent.com/scriptadamcrew/Nakata2/main/menu-all/ssssr.sh"
+
 chmod +x add-host
 chmod +x script-info
 chmod +x menu
@@ -333,6 +323,7 @@ chmod +x v2raay
 chmod +x ssh
 chmod +x sstpp
 chmod +x ssssr
+chmod +x ohp
 echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 # remove unnecessary files
